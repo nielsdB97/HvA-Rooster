@@ -29,7 +29,7 @@ END:VTIMEZONE
 <?php
 require '../class.iCalReader.php';
 
-/* @TODO deze link moet nog geopend worden */
+/* @TODO deze link moet nog geopend worden: COOKIE werkt niet */
 $url = 'webcal://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 setcookie('url', $url, '', '/snippets/HvA-Rooster', 'dev.justrightwebdesign.nl');
 
