@@ -25,6 +25,7 @@ $(document).ready( function() {
             for (var countKlassen=0; countKlassen < Object.keys(json).length; countKlassen++) {
                 var current = cleanKlasnaam(klassen[countKlassen]);
 
+                // Voeg checkboxes toe aan V1 of P vak
                 for (var countVakken=0; countVakken < json[current].checkboxes.length; countVakken++) {
                     if (current.substring(0,1) == 'V')
                         $('#V1-checkboxes').find('div').append( json[current].checkboxes[countVakken] );
@@ -33,10 +34,6 @@ $(document).ready( function() {
                 }
             }
         });
-
-        /* request.always( function(jqXHR, textStatus) {
-            console.log(jqXHR, textStatus);
-        }); */
     });
 
 
@@ -60,16 +57,13 @@ $(document).ready( function() {
 
         request = $.ajax({
             type: 'GET',
-            url: 'http://dev.justrightwebdesign.nl/snippets/HvA-Rooster/inc/generateRooster.php',
+            url: 'http://dev.justrightwebdesign.nl/snippets/HvA-Rooster/inc/createURL.php',
             data: {ids: ids}
         });
 
-        request.done( function(data) {
-            console.log(data);
-        });
-
-        request.always( function(jqXHR, textStatus) {
-            //console.log(jqXHR, textStatus);
+        request.done( function(url) {
+            //console.log(url);
+            location.href = url;
         });
     });
 });

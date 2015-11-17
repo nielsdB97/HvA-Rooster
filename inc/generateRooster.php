@@ -29,10 +29,6 @@ END:VTIMEZONE
 <?php
 require '../class.iCalReader.php';
 
-/* @TODO deze link moet nog geopend worden: COOKIE werkt niet */
-$url = 'webcal://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-setcookie('url', $url, '', '/snippets/HvA-Rooster', 'dev.justrightwebdesign.nl');
-
 foreach ($_GET['ids'] as $klas => $ids) {
 	// Plaats de speciale karakters terug om het goede bestand te laden $ical
 	$dirtyKlas = '';
