@@ -83,3 +83,26 @@ label {
 input[type=button] {
 	margin: 1rem;
 }
+
+select[multiple] {
+	width: 15em;
+	height: 10em;
+}
+
+fieldset {
+	margin-bottom: 1rem;
+}
+
+.vakken {
+	float: left;
+	width: 49%;
+}
+
+.vakken:last-of-type {
+	float: right;
+}
+
+div.submit {
+	 width: 100%;
+	float: left;
+}

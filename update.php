@@ -5,6 +5,7 @@
 	*/
 
 	$urls = [
+		'http://rooster.hva.nl/ical?564b2134&timetable=2015!studentset!DMCI_P01%20ROZE',
 		'http://rooster.hva.nl/ical?5648f34e&timetable=2015!studentset!DMCI_V1-01',
 		'http://rooster.hva.nl/ical?5648f359&timetable=2015!studentset!DMCI_V1-02',
 		'http://rooster.hva.nl/ical?5648f365&timetable=2015!studentset!DMCI_V1-03',
@@ -21,6 +22,7 @@
 	
 	foreach($urls as $url) {
 		$newfile = $_SERVER['DOCUMENT_ROOT'] . '/hvarooster/originals/' . substr($url, -5) . '.ics';
+
 		if(copy ($url, $newfile)) {
 			echo 'Copy Succes!<br/>';
 		} else {

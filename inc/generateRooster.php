@@ -27,27 +27,41 @@ END:STANDARD
 END:VTIMEZONE
 
 <?php
-	require 'class.iCalReader.php';
-	
-	$klas = $_GET['klas'];
-	
-	$ical = new ICal('originals/' . $klas . '.ics');
+require '../class.iCalReader.php';
+
+/* @TODO deze link moet nog geopend worden */
+$url = 'webcal://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+setcookie('url', $url, '', '/snippets/HvA-Rooster', 'dev.justrightwebdesign.nl');
+
+foreach ($_GET['ids'] as $klas => $ids) {
+	// Plaats de speciale karakters terug om het goede bestand te laden $ical
+	$dirtyKlas = '';
+	if (substr($klas, 0, 2) == 'V1')
+		$dirtyKlas = str_replace('V1', 'V1-', $klas);
+	else if (substr($klas, 0, 3) == 'P01')
+		$dirtyKlas = str_replace('P01', 'P01%20', $klas);
+
+	$ical = new ICal('../originals/' . $dirtyKlas . '.ics');
 	$events = $ical->events();
-	
-	$classes = array();
-	foreach($events as $event) {
-		if(!in_array($event['SUMMARY'], $classes, true)){
-			array_push($classes, $event['SUMMARY']);
-		};
-	};
-	
-	sort($classes);
-	
-	$ids = explode(',', $_GET['id']);
-	
-	foreach($ids as $id){
-		foreach($events as $event){
-			if($event['SUMMARY'] == $classes[$id]){
+
+	$vakken = array();
+	foreach ($events as $event) {
+		if (!in_array($event['SUMMARY'], $vakken, true))
+			array_push($vakken, $event['SUMMARY']);
+	}
+
+	sort($vakken);
+
+	// De name van checkboxes is KLAS-ID bijv: V0112-35; split op de - en vul array met 'schone' ids
+	$cleanIDs = array();
+	foreach ($ids as $id) {
+		$split = explode('-', $id);
+		$cleanIDs[] = $split[1];
+	}
+
+	foreach ($cleanIDs as $id) {
+		foreach ($events as $event) {
+			if ($event['SUMMARY'] == $vakken[$id]){
 				echo "\nBEGIN:VEVENT";
 				echo "\nDTSTAMP:20151115T154003Z";
 				echo "\nDTSTART;TZID=Europe/Amsterdam:" . $event['DTSTART'];
@@ -65,5 +79,7 @@ END:VTIMEZONE
 			}
 		}
 	}
-	echo "\nEND:VCALENDAR";
+}
+
+echo "\nEND:VCALENDAR";
 ?>
