@@ -4,7 +4,7 @@
 		<title>Rijks geweldige HvA Rooster</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<script src="script.js"></script>
+		<script src="script_v1.1.1.js"></script>
 	</head>
 	<body>
 		<header>
@@ -13,7 +13,7 @@
 		<aside>
 			<p>Gebruik op eigen risico.</p> 
 			<p>Ik ben niet verantwoordelijk als je een les of watdanook mist door m'n systeem. Dat gezegd hebbende; de roosters worden elke dag vers opgehaald van de originelen (rooster.hva.nl). In PHP worden de roosters geparsed en opnieuw gestructureerd op basis van je selectie.</p>
-			<p>V1.1 <br />© Rijk van Zanten onder <a href="http://opensource.org/licenses/MIT"> MIT</a>.
+			<p>V1.1.1 <br />© Rijk van Zanten onder <a href="http://opensource.org/licenses/MIT"> MIT</a>.
 		</aside>
 		<main>
 			<form onsubmit="return false;">
