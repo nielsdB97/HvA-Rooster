@@ -21,8 +21,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		for(i=0; i<checks.length; i++) {
 			ids.push(checks[i].value);
 		}
+		var url = 'webcal://rijks.website/hvarooster/rooster_V1.5.php?klas=' + klas + '&id=' + ids.join();
 		
-		window.prompt("Kopieer deze url en plak 'm in je Google Calender.", 'webcal://rijks.website/hvarooster/rooster_V1.5.php?klas=' + klas + '&id=' + ids.join(), '_blank');
+		window.prompt("Kopieer deze url en plak 'm in je Google Calender.", encodeURI(url), '_blank');
 	});
 	
 	function doAjaxRequest(klas){

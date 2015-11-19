@@ -37,7 +37,7 @@
 			</form>
 			<div>
 				<input type="button" name="ios" value="Mac / iOS (Agenda)" />
-<!-- 				<input type="button" name="google" value="Kopieer webcal link (Google)" /> -->
+				<input type="button" name="google" value="Kopieer webcal link (Google)" />
 			</div>
 		</main>
 	</body>
