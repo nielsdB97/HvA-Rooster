@@ -21,9 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		for(i=0; i<checks.length; i++) {
 			ids.push(checks[i].value);
 		}
-		var url = 'webcal://rijks.website/hvarooster/rooster_V1.5.php?klas=' + klas + '&id=' + ids.join();
-		
-		window.prompt("Kopieer deze url en plak 'm in je Google Calender.", encodeURI(url), '_blank');
+		var url = 'http://rijks.website/hvarooster/rooster_V1.5.php?klas=' + klas + '&id=' + ids.join();
+		var shortenedUrl = shortenUrl(url);
 	});
 	
 	function doAjaxRequest(klas){
@@ -36,7 +35,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	function ajaxSucces() {
 		document.querySelector('#klassen').innerHTML = this.responseText;
-		console.log('vakken updated');
+	}
+	
+	function shortenUrl(url) {
+		var gRequest = new XMLHttpRequest();
+		gRequest.onload = function() {
+			var response = this.responseText;
+			var parsedResponse = JSON.parse(response);
+			document.querySelector('a[name="google_link"]').setAttribute('href', 'http://www.google.com/calendar/render?cid=' + parsedResponse.id);
+			document.querySelector('a[name="google_link"]').classList.add('active');
+			
+		};
+		gRequest.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyBpeqWAd7_JXHLpp565prKh-XCgYEibe8Q');
+		gRequest.setRequestHeader('Content-Type', 'application/json')
+		gRequest.send(JSON.stringify({"longUrl": url}));
 	}
 	
 });
