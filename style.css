@@ -70,6 +70,7 @@ body > aside p:last-of-type {
 body > main {
 	flex-basis: 30em;
 	flex-grow: 1;
+	min-height: 100vh;
 }
 
 h3 {

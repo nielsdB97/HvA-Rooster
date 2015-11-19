@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			ids.push(checks[i].value);
 		}
 		
-		window.open('webcal://localhost:8888/hvarooster/HvA-Rooster/rooster_V1.5.php?klas=' + klas + '&id=' + ids.join(), '_blank');
+		window.open('webcal://rijks.website/hvarooster/rooster_V1.5.php?klas=' + klas + '&id=' + ids.join(), '_blank');
 	});
 	
 	document.querySelector('[name=google]').addEventListener('click', function() {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			ids.push(checks[i].value);
 		}
 		
-		window.prompt("Kopieer deze url en plak 'm in je Google Calender. http://visihow.com/Use_webcal_url_to_add_a_calendar_to_google_calendar", 'webcal://rijks.website/hvarooster/rooster.php?klas=' + klas + '&id=' + ids.join(), '_blank');
+		window.prompt("Kopieer deze url en plak 'm in je Google Calender.", 'webcal://rijks.website/hvarooster/rooster_V1.5.php?klas=' + klas + '&id=' + ids.join(), '_blank');
 	});
 	
 	function doAjaxRequest(klas){

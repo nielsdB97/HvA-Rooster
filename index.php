@@ -13,7 +13,7 @@
 		<aside>
 			<p>Gebruik op eigen risico.</p> 
 			<p>Ik ben niet verantwoordelijk als je een les of watdanook mist door m'n systeem. Dat gezegd hebbende; de roosters worden elke dag vers opgehaald van de originelen (rooster.hva.nl). In PHP worden de roosters geparsed en opnieuw gestructureerd op basis van je selectie.</p>
-			<p>© Rijk van Zanten onder <a href="http://opensource.org/licenses/MIT"> MIT</a>.
+			<p>V1.1 <br />© Rijk van Zanten onder <a href="http://opensource.org/licenses/MIT"> MIT</a>.
 		</aside>
 		<main>
 			<form onsubmit="return false;">
@@ -37,7 +37,7 @@
 			</form>
 			<div>
 				<input type="button" name="ios" value="Mac / iOS (Agenda)" />
-				<input type="button" name="google" value="Kopieer webcal link (Google)" />
+<!-- 				<input type="button" name="google" value="Kopieer webcal link (Google)" /> -->
 			</div>
 		</main>
 	</body>
