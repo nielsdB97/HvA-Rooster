@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
+	document.querySelector('[name=klas]').addEventListener('change', function() {
+		doAjaxRequest(document.querySelector('[name=klas]').value);
+	});
+	
 	document.querySelector('[name=ios]').addEventListener('click', function() {
 		var checks = document.querySelectorAll('input[type="checkbox"]:checked');
 		var klas = document.querySelector('select').value;
@@ -7,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			ids.push(checks[i].value);
 		}
 		
-		window.open('webcal://rijks.website/hvarooster/rooster.php?klas=' + klas + '&id=' + ids.join(), '_blank');
+		window.open('webcal://localhost:8888/hvarooster/HvA-Rooster/rooster_V1.5.php?klas=' + klas + '&id=' + ids.join(), '_blank');
 	});
 	
 	document.querySelector('[name=google]').addEventListener('click', function() {
@@ -20,5 +24,18 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 		window.prompt("Kopieer deze url en plak 'm in je Google Calender. http://visihow.com/Use_webcal_url_to_add_a_calendar_to_google_calendar", 'webcal://rijks.website/hvarooster/rooster.php?klas=' + klas + '&id=' + ids.join(), '_blank');
 	});
+	
+	function doAjaxRequest(klas){
+		var request = new XMLHttpRequest();
+		
+		request.onload = ajaxSucces;
+		request.open('GET', 'get_classes.php?klas=' + klas, true);
+		request.send();
+	}
+
+	function ajaxSucces() {
+		document.querySelector('#klassen').innerHTML = this.responseText;
+		console.log('vakken updated');
+	}
 	
 });

@@ -32,28 +32,8 @@
 					<option value="V1-11">V1-11</option>
 					<option value="V1-12">V1-12</option>
 				</select>
-				<h3>Vakken:</h3>
-			<?php
-				require 'class.iCalReader.php';
-	
-				$ical = new ICal('originals/V1-06.ics');
-				$events = $ical->events();
-			
-				$classes = array();
-				foreach($events as $event) {
-					if(!in_array($event['SUMMARY'], $classes, true)){
-						array_push($classes, $event['SUMMARY']);
-					};
-				};
-	
-				sort($classes);
-				
-				$counter = 0;
-				foreach($classes as $class) {
-					echo '<label><input type="checkbox" name="id" value="' . $counter . '" />' . $class . '</label>';
-					$counter++;
-				}
-			?>
+				<div id="klassen">
+				</div>
 			</form>
 			<div>
 				<input type="button" name="ios" value="Mac / iOS (Agenda)" />
