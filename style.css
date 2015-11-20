@@ -73,6 +73,12 @@ body > main {
 	min-height: 100vh;
 }
 
+body > main > header {
+	background-color: silver;
+	color: red;
+	font-family: 'Papyrus', decorative;
+}
+
 h3 {
 	margin-top: 1.5rem;
 }
