@@ -10,7 +10,7 @@
 		<header>
 			<h1>HvA CMD V1 Rooster</h1>
 		</header>
-		<div class="flex-container">
+		<div class="flex-container" id="content">
 		<main>
 			<div id="main_content">
 				<form onsubmit="return false;">
