@@ -13,9 +13,12 @@
 		<aside>
 			<p>Gebruik op eigen risico.</p> 
 			<p>Ik ben niet verantwoordelijk als je een les of watdanook mist door m'n systeem. Dat gezegd hebbende; de roosters worden elke dag vers opgehaald van de originelen (rooster.hva.nl). In PHP worden de roosters geparsed en opnieuw gestructureerd op basis van je selectie.</p>
-			<p>V1.2 <br />© Rijk van Zanten onder <a href="http://opensource.org/licenses/MIT"> MIT</a>.
+			<p>V1.2.1 <br />© Rijk van Zanten onder <a href="http://opensource.org/licenses/MIT"> MIT</a>.
 		</aside>
 		<main>
+			<header>
+				<p>Vind jij het ontwerp van deze site ook niet om aan te zien? Of heb je een coole nieuwe feature bedacht? <a href="https://github.com/RijkvanZanten/HvA-Rooster">Help mee!</a></p>
+			</header>
 			<form onsubmit="return false;">
 				<h3>Klas:</h3>
 				<select name="klas">
