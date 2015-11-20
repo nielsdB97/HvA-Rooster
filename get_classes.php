@@ -13,8 +13,6 @@
 
 	sort($classes);
 	
-	echo '<h3>Vakken:</h3>';
-	
 	$counter = 0;
 	foreach($classes as $class) {
 		echo '<label><input type="checkbox" name="vak" value="' . $class . '" />' . $class . '</label>';

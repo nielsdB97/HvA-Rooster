@@ -1,94 +1,190 @@
 /* Browser Reset ---------------------------------------------- */
- html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
    margin: 0;
    padding: 0;
    border: 0;
    font-size: 100%;
-   font: inherit;
    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
- article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
    display: block;
 }
- body {
+body {
    line-height: 1;
 }
- ol, ul {
+ol, ul {
    list-style: none;
 }
- blockquote, q {
+blockquote, q {
    quotes: none;
 }
- blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before, blockquote:after, q:before, q:after {
    content: '';
    content: none;
 }
- table {
+table {
    border-collapse: collapse;
    border-spacing: 0;
 }
+/* Border-box == bae */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 /* ------------------------------------------ */
 
-body {
-	display: flex;
-	flex-wrap: wrap;
-	font-family: 'Georgia', serif;
-	line-height: 140%;
+/* Typography */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700|Raleway:600|Merriweather:400,700);
+* {
+    font-family: 'Raleway', sans-serif;
+}
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
 }
 
-body > * {
-	padding: 1rem;
+body {
+    font-family: 'Georgia', serif;
+    line-height: 140%;
+    height: 100vh;
+    max-height: 100vh;
+    background-color: #f8f8f8;
 }
 
 body > header {
-	flex-basis: 100%;
-	background-color: papayawhip;
+    width: 100%;
+    background-color: #3498DB;
+    padding: 1rem;
 }
 
 body > header h1 {
-	font-size: 1.5em;
-	font-family: 'Comic Sans MS', cursive;
+    line-height: 1em;
+    font-size: 3em;
+    font-family: 'Open Sans', 'Merriweather', sans-serif;
+    font-weight: 700;
 }
 
 body > header h1 span {
-	text-decoration: line-through;
+    text-decoration: line-through;
 }
 
-body > aside {
-	flex-basis: 15em;
-	background-color: lime;
-	position: relative;
+body main div#klas_selectie {
+    color: #f8f8f8;
+    background-color: #34495E;
+    padding: 1em 2em 2em;
+    border-radius: 1em;
+}
+body main div#klas_selectie h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 2em;
+    line-height: 1em;
+}
+body main div#klas_selectie select {
+    min-width: 15em;
+    font-size: 1em;
+
+    padding: .5em;
+    margin: 0;
+    border-radius: .5em;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color: #666;
+    border: none;
+    outline: none;
+    display: inline-block;
+    cursor: pointer;
 }
 
-body > aside p:last-of-type {
-	position: absolute;
-	bottom: 1rem;
-	text-align: center;
+body main div#klassen {
+    margin-top: 1em;
+    padding: 0 2em;
+}
+body main div#klassen h3 {
+    display: none;
+    font-size: 2em;
+    line-height: 1em;
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+body main div#klassen label {
+    opacity: 0;
+    transition: .3s opacity;
 }
 
-body > main {
-	flex-basis: 30em;
-	flex-grow: 1;
-	min-height: 100vh;
+body main > div#main_content {
+    margin: 2em;
+    padding: 2em;
+    background-color: #ECF0F1;
+    border-radius: 2em;
 }
 
-h3 {
-	margin-top: 1.5rem;
+body aside {
+    flex-basis: 20em;
+    background-color: #F1C40F;
+    max-height: 100vh;
+    box-sizing: content-box;
+    padding: 1em;
+}
+body aside > p:first-of-type {
+    margin-bottom: 1em;
+}
+body aside h4 {
+    font-weight: 700;
+}
+body aside p:nth-child(2) {
+    margin-bottom: 1em;
+}
+body aside > footer {
+    position: absolute;
+    bottom: 0;
+    width: 20em;
+    text-align: center;
+}
+body aside > footer > p {
+    padding: 1em;
+}
+body aside > footer > p > span {
+    font-weight: 700;
+    font-style: italic;
+}
+
+body main {
+    flex-basis: 30em;
+    flex-grow: 1;
+    height: 90vh;
+}
+
+body main > header {
+    background-color: silver;
+    color: red;
+    font-family: 'Papyrus', decorative;
+}
+
+.visible {
+    display: block !important;
+    opacity: 1 !important;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 label {
-	display: block;
+    display: block;
 }
 
 input[type=button] {
-	margin: 1rem;
+    margin: 1rem;
 }
 
 a[name="google_link"] {
-	display: none;
+    display: none;
 }
 
 a[name="google_link"].active {
-	display: inline;
+    display: inline;
 }
